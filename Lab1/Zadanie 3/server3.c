@@ -85,8 +85,11 @@ int main(int argc, char** argv) {
                 inet_ntop(AF_INET, &client_addr.sin_addr, addr_buff, sizeof(addr_buff)),
                 ntohs(client_addr.sin_port)
         );
-        fprintf(stdout, "palindrom: %d\n", is_palindrome(buff, strlen(buff)));
-        if (is_palindrome(buff, strlen(buff)) == 1)  {
+
+        int palindrome = is_palindrome(buff, strlen(buff));
+        fprintf(stdout, "palindrom: %d\n", palindrome);
+
+        if (palindrome == 1)  {
             /* Wyslanie odpowiedzi (echo): */
             retval = sendto(
                     sockfd,
