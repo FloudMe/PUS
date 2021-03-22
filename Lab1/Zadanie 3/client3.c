@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
         if(f != 0)
         {
             char message[100];
-            //scanf("%ms", &message);
+
             fgets(message, 100, stdin);
 
             retval = sendto(
@@ -71,7 +71,6 @@ int main(int argc, char** argv) {
             }
 
             if (message[0] == '\n') {
-                fprintf(stdout, "dupa kurwa\n");
                 kill(f, SIGKILL);
                 break;
             }
